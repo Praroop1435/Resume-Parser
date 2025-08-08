@@ -1,0 +1,34 @@
+# app.py
+import streamlit as st
+from Login.login import login_signup 
+from Login.dashboard import admin_dashboard, user_dashboard
+
+# Initialize session state keys
+if "logged_in" not in st.session_state:
+    st.session_state.logged_in = False
+if "username" not in st.session_state:
+    st.session_state.username = None
+if "role" not in st.session_state:
+    st.session_state.role = None
+
+# Route based on login status
+if st.session_state.logged_in:
+    st.sidebar.success(f"Logged in as {st.session_state.username} ({st.session_state.role})")
+    
+    if st.sidebar.button("Logout"):
+        st.session_state.logged_in = False
+        st.session_state.username = None
+        st.session_state.role = None
+        st.rerun()  # Refresh the app
+
+    # Role-based dashboard
+    if st.session_state.role == "admin":
+        admin_dashboard()
+    else:
+        user_dashboard()
+else:
+    login_signup()
+
+
+
+
