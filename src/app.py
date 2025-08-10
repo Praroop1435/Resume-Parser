@@ -1,6 +1,12 @@
 # app.py
+import sys
+import os
+
+# Add the parent directory to sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from Login.login import login_signup
 import streamlit as st
-from Login.login import login_signup 
 from Login.dashboard import admin_dashboard, user_dashboard
 
 # Initialize session state keys
