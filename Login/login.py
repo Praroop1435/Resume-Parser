@@ -7,7 +7,7 @@ from main import db_name, admin_user, admin_pass
 def login_signup():
     st.title("Resume Parser App")
 
-    tab1, tab2 = st.tabs(["🔐 Signin", "📝 Sign Up"])
+    tab1, tab2 = st.tabs(["🔐 Sign in", "📝 Sign Up"])
 
     with tab1:
         username = st.text_input("Username", key="login_user")

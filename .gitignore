@@ -1,5 +1,5 @@
 # Byte-compiled / optimized / DLL files
-__pycache__/
+# __pycache__/
 *.py[codz]
 *$py.class
 
@@ -135,7 +135,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
+# .env
 .envrc
 .venv
 env/
@@ -206,7 +206,8 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
-# Database
-users.db
-#ignore
-setup.py
+# # Database
+# users.db
+# #ignore
+# setup.py
+# .env
