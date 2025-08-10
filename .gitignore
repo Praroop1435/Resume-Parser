@@ -6,6 +6,15 @@ __pycache__/
 # C extensions
 *.so
 
+
+
+# Database
+users.db
+
+#ignore2
+.env
+
+
 # Distribution / packaging
 .Python
 build/
@@ -135,7 +144,6 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
 .envrc
 .venv
 env/
@@ -206,11 +214,3 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
-# Database
-users.db
-
-#ignore
-setup.py
-
-#env
-.env
