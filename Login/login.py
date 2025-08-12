@@ -27,7 +27,7 @@ def login_signup():
     with tab2:
         new_user = st.text_input("New Username", key="signup_user")
         new_pass = st.text_input("New Password", type="password", key="signup_pass")
-        role = st.selectbox("Register as:", ["user", "admin"], key="signup_role")  # NEW
+        role = "user"  # NEW
 
         if st.button("Sign Up"):
             if create_user(new_user, new_pass, role):  # UPDATED
