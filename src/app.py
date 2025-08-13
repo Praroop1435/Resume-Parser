@@ -1,6 +1,16 @@
 # app.py
 import sys
 import os
+from pathlib import Path
+import streamlit as st
+
+logo_path = Path("src/components/Logo.png").resolve()
+
+st.set_page_config(
+    page_title="Resume Parser",
+    page_icon=str(logo_path)
+)
+
 
 # Add the parent directory to sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))

@@ -12,4 +12,6 @@ pymysql
 streamlit-tags
 Pillow
 bcrypt
+PyPDF2
+fastapi
 -e .

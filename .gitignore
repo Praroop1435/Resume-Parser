@@ -216,6 +216,7 @@ __marimo__/
 
 #Data
 JDs
+ingested_resumes
 
 #NOT FUNCTION
 scrap.py
