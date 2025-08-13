@@ -14,4 +14,5 @@ Pillow
 bcrypt
 PyPDF2
 fastapi
+spacy
 -e .

@@ -217,6 +217,7 @@ __marimo__/
 #Data
 JDs
 ingested_resumes
+job_keywords.csv
 
 #NOT FUNCTION
 scrap.py
