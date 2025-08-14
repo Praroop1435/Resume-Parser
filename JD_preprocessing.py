@@ -33,7 +33,7 @@ def extract_keywords(text, min_freq=1):
     return sorted(keywords)
 
 # Path to folder containing job description TXT files
-folder_path = "C:/Users/91620/Desktop/Github/Resume-Parser/JDs"
+folder_path = "JDs"
 
 # Store results
 all_keywords_data = []
