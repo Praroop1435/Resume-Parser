@@ -5,7 +5,7 @@ from PyPDF2 import PdfReader
 import docx2txt
 from src.pipeline.preprocess_resume_text import preprocess_resume_text
 
-JD_CSV = "JD_preprocessing.csv"
+JD_CSV = "job_keywords.csv"
 
 app = FastAPI()
 
