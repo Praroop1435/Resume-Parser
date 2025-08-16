@@ -16,7 +16,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # --- Imports ---
 from Login.login import login_signup
-from Login.dashboard import admin_dashboard, user_dashboard, ats_scoring_ui
+from Login.dashboard import admin_dashboard, user_dashboard
 
 # --- Initialize Session State ---
 st.session_state.setdefault("logged_in", False)
@@ -45,4 +45,4 @@ elif st.session_state.page == "dashboard":
         admin_dashboard()
     else:
         user_dashboard()
-        ats_scoring_ui()
+
