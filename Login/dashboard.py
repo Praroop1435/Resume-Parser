@@ -3,11 +3,11 @@ import requests
 import os
 import re
 
-# ---------------- CONFIG ---------------- #
+# CONFIG
 API_BASE = "http://localhost:8000"  # Backend FastAPI URL
 JD_FOLDER = "JDs"
 
-# ---------------- HELPERS ---------------- #
+# HELPERS
 def _pretty_label(filename: str) -> str:
     """Convert raw filename into a clean label for dropdowns."""
     name = filename.rsplit(".", 1)[0]
@@ -16,7 +16,7 @@ def _pretty_label(filename: str) -> str:
     name = re.sub(r"\s+", " ", name).strip()
     return name.title()
 
-# ---------------- USER DASHBOARD ---------------- #
+# USER DASHBOARD 
 def user_dashboard():
     st.title("🙋 Resume Parser & ATS Scoring")
 
@@ -52,7 +52,7 @@ def user_dashboard():
     uploaded_file = st.file_uploader("📄 Upload Resume (PDF/DOCX)", type=["pdf", "docx"])
 
     # 5. Fresher or Non-Fresher
-    fresher_choice = st.radio("👤 Candidate Type", ["Fresher", "Non-Fresher"], index=0)
+    fresher_choice = st.radio("👤 Candidate Type", ["Fresher", "Experienced"], index=0)
     fresher = True if fresher_choice == "Fresher" else False
 
     # 6. Analyze Resume
