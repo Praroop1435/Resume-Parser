@@ -17,5 +17,5 @@ fastapi
 spacy
 sentence-transformers
 tf-keras
-textract
--e .
+streamlit_oauth
+streamlit_option_menu

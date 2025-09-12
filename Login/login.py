@@ -1,42 +1,63 @@
+# Login/login.py
 import streamlit as st
-import time
-from Login.auth import create_user, verify_user
-from main import db_name, admin_user, admin_pass
+import httpx
+from Login.google_auth import oauth2, REDIRECT_URI, SCOPE
+
+USERINFO_ENDPOINT = "https://openidconnect.googleapis.com/v1/userinfo"
+
+def google_login():
+    # Show a centered login card
+    st.markdown(
+        """
+        <style>
+        .login-card {
+            max-width: 400px;
+            margin: 80px auto;
+            padding: 30px;
+            border-radius: 12px;
+            background-color: #ffffff;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .login-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+        .login-subtitle {
+            font-size: 16px;
+            color: #666666;
+            margin-bottom: 30px;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+    with st.container():
+        st.markdown('<div class="login-card">', unsafe_allow_html=True)
+        st.markdown('<div class="login-title">Resume Parser App</div>', unsafe_allow_html=True)
+        st.markdown('<div class="login-subtitle">Sign in to continue</div>', unsafe_allow_html=True)
+
+        # Google login button
+        result = oauth2.authorize_button(
+            "🔐 Login with Google",
+            REDIRECT_URI,
+            SCOPE,
+            key="google_login"
+        )
+
+        st.markdown('</div>', unsafe_allow_html=True)
+
+        return result
+
 
 def login_signup():
-    st.title("Resume Parser App")
-
-    tab1, tab2 = st.tabs(["🔐 Sign in", "📝 Sign Up"])
-
-    # --- LOGIN TAB ---
-    with tab1:
-        username = st.text_input("Username", key="login_user")
-        password = st.text_input("Password", type="password", key="login_pass")
-
-        if st.button("Login"):
-            valid, role = verify_user(username, password)
-            if valid:
-                # Store session state
-                st.session_state.logged_in = True
-                st.session_state.username = username
-                st.session_state.role = role
-
-                # Redirect to dashboard
-                st.title("Logging in...")
-                time.sleep(1)
-                st.session_state.page = "dashboard"
-                st.rerun()
-            else:
-                st.error("Invalid username or password")
-
-    # --- SIGNUP TAB ---
-    with tab2:
-        new_user = st.text_input("New Username", key="signup_user")
-        new_pass = st.text_input("New Password", type="password", key="signup_pass")
-        role = "user"  # Default role for signup
-
-        if st.button("Sign Up"):
-            if create_user(new_user, new_pass, role):
-                st.success("Account created! You can log in now.")
-            else:
-                st.error("Username already exists!")
+    result = google_login()
+    if result:
+        # Save login state
+        st.session_state.logged_in = True
+        st.session_state.user_info = result
+        st.session_state.page = "dashboard"
+        st.rerun()
