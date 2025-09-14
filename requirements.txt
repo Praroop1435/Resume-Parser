@@ -19,3 +19,5 @@ sentence-transformers
 tf-keras
 streamlit_oauth
 streamlit_option_menu
+fitz
+rapidfuzz

@@ -15,7 +15,7 @@ def google_login():
             margin: 80px auto;
             padding: 30px;
             border-radius: 12px;
-            background-color: #ffffff;
+            background-color: #B37C70;
             box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
@@ -61,3 +61,8 @@ def login_signup():
         st.session_state.user_info = result
         st.session_state.page = "dashboard"
         st.rerun()
+    
+    
+   
+
+

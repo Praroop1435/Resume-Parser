@@ -1,11 +1,14 @@
 import streamlit as st
 import requests
 import os
+from pathlib import Path
 import re
 
 # CONFIG
 API_BASE = "http://localhost:8000"  # Backend FastAPI URL
-JD_FOLDER = "JDs"
+# Absolute path to JD folder (project root)
+ROOT_DIR = Path(__file__).resolve().parent.parent  # src/ → root/
+JD_FOLDER = ROOT_DIR / "JD"
 
 # HELPERS
 def _pretty_label(filename: str) -> str:

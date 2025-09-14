@@ -10,7 +10,7 @@ from src.pipeline.ats_scoring import compute_ats
 
 # ------------------ Paths / Config ------------------ #
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-JD_FOLDER = BASE_DIR / "JDs"
+JD_FOLDER = BASE_DIR / "JD"
 JD_CSV = str(BASE_DIR / "job_keywords.csv")
 
 app = FastAPI()
